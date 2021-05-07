@@ -1,2 +1,22 @@
 <router-outlet></router-outlet>
-sdsd
+
+
+
+<table border="2" cdkDropList (cdkDropListDropped)="dropTable($event)">
+  <thead>
+    <th>Orders</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Address</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of users" cdkDrag cdkDragLockAxis="y">
+      <td>{{item.order}}</td>
+      <td>{{item.first}}</td>
+      <td>{{item.last}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.address}}</td>
+    </tr>
+  </tbody>
+</table>
