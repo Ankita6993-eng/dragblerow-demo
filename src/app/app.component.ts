@@ -1,5 +1,5 @@
 import { Component,ViewChild } from '@angular/core';
-import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import {CdkDragDrop, moveItemInArray,CdkDragStart} from '@angular/cdk/drag-drop';
 import {MatTable} from '@angular/material/table';
 import {User} from './user'
 import { from } from 'rxjs';
@@ -9,7 +9,9 @@ import { from } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
+  
   title = 'dragblerow-demo';
     users: User[] = [
     {
@@ -83,10 +85,9 @@ export class AppComponent {
       order: 10
     }
 ]
-data=this.users
 
-dropTable(event: CdkDragDrop<User[]>){
-  const prevIndex = this.data.findIndex((d) => d === event.item.data);
-    moveItemInArray(this.data, prevIndex, event.currentIndex);
+dropTable(event: CdkDragDrop<User[]>|any){
+    moveItemInArray(this.users, event.previousIndex, event.currentIndex);
+    console.log(`Moving item from ${event.previousIndex} to index ${event.currentIndex}`)
 }
 }

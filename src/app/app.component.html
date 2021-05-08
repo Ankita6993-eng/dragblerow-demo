@@ -2,7 +2,7 @@
 
 
 
-<table border="2" cdkDropList (cdkDropListDropped)="dropTable($event)">
+<table border="2" cdkDropList >
   <thead>
     <th>Orders</th>
     <th>First Name</th>
@@ -10,9 +10,11 @@
     <th>Email</th>
     <th>Address</th>
   </thead>
-  <tbody>
-    <tr *ngFor="let item of users" cdkDrag cdkDragLockAxis="y">
-      <td>{{item.order}}</td>
+  <tbody cdkDropList [cdkDropListData]="users" (cdkDropListDropped)="dropTable($event)"> 
+    <tr *ngFor="let item of users " cdkDrag cdkDragLockAxis="y" >
+      <td><div class="drag-handle">
+        {{ item.order }}
+      </div></td>
       <td>{{item.first}}</td>
       <td>{{item.last}}</td>
       <td>{{item.email}}</td>
