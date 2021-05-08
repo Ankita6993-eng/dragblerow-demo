@@ -1,0 +1,22 @@
+<p>draggble-row works!</p>
+
+<table border="2" >
+    <thead>
+      <th>Orders</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Address</th>
+    </thead>
+    <tbody cdkDropList  (cdkDropListDropped)="dropTable($event)"> 
+      <tr *ngFor="let item of users " cdkDrag>
+        <td>
+          {{ item.order }}
+        </td>
+        <td>{{item.first}}</td>
+        <td>{{item.last}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.address}}</td>
+      </tr>
+    </tbody>
+  </table>
