@@ -1,1 +1,11 @@
-<p>file-upload works!</p>
+
+<div class="uploadfilecontainer" (click)="fileInput.click()" appFileupload (fileDropped)="filesDropped($event)" >
+    <input hidden type="file" #fileInput (change)="filesDropped($any($event.target).files)" multiple>
+	<div class="text-wrapper">
+		<div class="centered">Drop your file here!</div>
+	</div>
+</div>
+
+<div *ngFor="let f of files">
+    <div  width="100px" height="100px" >{{f.name}}</div>
+</div>

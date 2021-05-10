@@ -7,12 +7,14 @@ import { DragDropModule } from "@angular/cdk/drag-drop";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { DraggbleRowComponent } from './draggble-row/draggble-row.component';
+import { FileuploadDirective } from './fileupload.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     FileUploadComponent,
-    DraggbleRowComponent
+    DraggbleRowComponent,
+    FileuploadDirective
   ],
   imports: [
     BrowserModule,
